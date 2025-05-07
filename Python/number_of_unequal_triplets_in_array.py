@@ -7,41 +7,30 @@ class Solution:
 
         for n in nums:
 
-            print('------------------------------')
+            # This line restarts the array and add the value of nums[x] to it
             array = [nums[x]]
+
             while True:
                 
-                print(f'Array: {array}')
-                print(f'x value = {nums[x]}')
-                #print(f'y value = {nums[y]}')
-
+                # This line validates that y have a valid number to avoid an Error
                 if y >= len(nums):
-                    print('len validation')
                     break
 
+                # This block compares values, adds them to the array and check for triplets completion.
                 if nums[x] != nums[y]:
-                    print('Comparison true')
 
                     if nums[y] not in array:
-                        print('Looking for y in array')
                         array.append(nums[y])
-                        print('Array: ', array)
 
                     if len(array) == 3:
-                        print('len of array')
                         triplets += 1
                         break
 
-                print('adding 1 to y')
+                # This line increments the value of y
                 y += 1
-            print("Finished while loop")
-
-            print(f'Triplets in this completed loop: {triplets}')
+            # This lines increments x and y counters and restart x and y
             x_counter += 1
             y_counter += 1
             x, y = x_counter, y_counter
-            #array = [nums[x]]
-
-        print('Finished For loop')    
-        print(f'Triplets: {triplets}')
+        
         return triplets
